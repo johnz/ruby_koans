@@ -23,7 +23,7 @@ class AboutHashes < EdgeCase::Koan
   def test_accessing_hashes_with_fetch
     hash = { :one => "uno" }
     assert_equal "uno", hash.fetch(:one)
-    assert_raise(IndexError) do
+    assert_raise(IndexError) do #v1.9.2 KeyError, v1.8.7 IndexError
       hash.fetch(:doesnt_exist)
     end
 
